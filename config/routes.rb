@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-  resource :users, only: [:create, :show]
+  get 'users/download', to: 'users#download'
+  resources :users, only: [:index,:create,:show,:destroy]
+  resource :pics, only: [:create,:show]
 end
