@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/download', to: 'users#download'
-  resources :users, only: [:index,:create,:show,:destroy]
+  get 'pics/:id', to: 'pics#show'
+  resource :users, only: [:create,:show,:destroy]
   resource :pics, only: [:create,:show]
 end

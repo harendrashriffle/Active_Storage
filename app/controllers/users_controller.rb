@@ -10,9 +10,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(2)
-    user.image.representation(resize_to_limit: [100,100])
-    render json: url_for(user.image)
+    user = User.last
+    # user.image.representation(resize_to_limit: [100,100])
+    # render json: url_for(user.image)
+    render json: rails_storage_proxy_path(user.image)
 
   end
 
